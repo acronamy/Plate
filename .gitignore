@@ -69,3 +69,6 @@ typings/
 src/**/*.js
 dist
 build
+
+
+**/*/package-lock.json
