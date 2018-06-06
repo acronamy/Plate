@@ -1,0 +1,36 @@
+{
+  "name": "plate-app",
+  "version": "1.0.0",
+  "description": "developing plate server with plate app",
+  "main": "index.js",
+  "dependencies": {
+    "@plate/core": "../core",
+    "@types/webpack": "^4.1.3",
+    "docs": "^0.0.0-37",
+    "webpack": "^4.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^9.4.7",
+    "@types/tapable": "^1.0.2",
+    "awesome-typescript-loader": "^3.4.1",
+    "typescript": "^2.8.3",
+    "webpack-cli": "^2.0.15"
+  },
+  "scripts": {
+    "start": "node build/plate.server.js",
+    "postinstall": "npm run build:backend",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:backend": "webpack-cli --config ./webpack.config.js --env.target=backend",
+    "build:frontend": "webpack-cli --config ./webpack.frontend.js --env.target=frontend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/acronamy/plate-test-app.git"
+  },
+  "author": "Adam Crockett",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/acronamy/plate-test-app/issues"
+  },
+  "homepage": "https://github.com/acronamy/plate-test-app#readme"
+}
