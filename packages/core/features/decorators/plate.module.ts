@@ -9,7 +9,8 @@ import { settingsStore } from '../stores/settings.store';
 */
 export default function PlateModule( ModuleConfig:ModuleConfig ){
     return function(constructor: Function){
-        settingsStore.set('port', ModuleConfig);
+        settingsStore.set("port", ModuleConfig.port);
+        settingsStore.set("appBase", ModuleConfig.base);
     };
 }
 

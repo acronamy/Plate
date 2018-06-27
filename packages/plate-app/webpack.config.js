@@ -15,6 +15,7 @@ function buildBackend(args){
         entry: './src/root.module.ts',
         target: 'node',
         output: {
+            libraryTarget: 'commonjs',
             path: join(__dirname, 'build'),
             filename: 'plate.server.js'
         },

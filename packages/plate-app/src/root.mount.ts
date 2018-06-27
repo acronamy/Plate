@@ -4,7 +4,8 @@ import { Mount, Route } from '@plate/core';
     module: module,
     base:'/',
     views:[
-        'views'
+        'views',
+        'foo'
     ]
 })
 export class RootMount{

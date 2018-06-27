@@ -4,7 +4,12 @@ type ServerSettingKeys =
  * The port which this instance of Plate is bound to.
  * @default undefined
 */
-'port'
+'port'|
+/**
+ * The root url of this Plate instance.
+ * @default undefined
+*/
+'appBase'
 
 
 /**

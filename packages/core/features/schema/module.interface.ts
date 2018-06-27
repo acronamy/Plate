@@ -64,4 +64,11 @@ export default interface ModuleConfig{
      * - other menipulations
     */
     imports:Function[]
+    /**
+     * @type Class Mount
+     * 
+     * base
+     * Provides a base url for your entire application from a provided Mount
+    */
+    base:Function;
 }

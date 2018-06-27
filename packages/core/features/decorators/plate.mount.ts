@@ -1,5 +1,6 @@
 import { MountConfig } from '../schema/mount.interface';
-import { routeStore } from '../stores/route.store';
+import { viewsStore } from '../stores/views.store';
+import { resolveToModule, deepFindTemplates } from './logic-mount/mount-config-handler.logic';
 
 /**
  * ### @Mount
@@ -8,14 +9,20 @@ import { routeStore } from '../stores/route.store';
  * @type decorator function
 */
 export default function Mount( mountConfig:MountConfig ){
-    return function(constructor: Function){
-        
-        if(mountConfig.base === ''){
+    return function(Target: Function){
+        const proto = Target.prototype;
 
-        }
-        else{
+        proto.id = Target.name;
+        proto.base = mountConfig.base;
+        proto.views = {}
 
+        for(let path of mountConfig.views){
+            const view = resolveToModule(mountConfig.module, path);
+            const templates = deepFindTemplates(view, '.html');
+            proto.views[view] = templates;
         }
+
+        console.log(proto)
 
     };
 }

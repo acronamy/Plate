@@ -1,6 +1,8 @@
 import { RouteConfig } from '../schema/route.interface';
+import { MountConfig } from '../schema/mount.interface';
 import { routeStore } from '../stores/route.store';
 
+const classMountAccessor:string = 'mount';
 
 /**
  * ### @Route
@@ -9,17 +11,11 @@ import { routeStore } from '../stores/route.store';
  * @type decorator function
 */
 export default function Route( routeConfig:RouteConfig ){ 
-    return function(target: any, propertyKey: string, descriptor: PropertyDescriptor){
-        const proto = target.prototype;
-        
-        routeStore.set(<string>routeConfig.url, routeConfig);
-
-        console.log(routeStore)
-
-        Object.defineProperty('route', proto, {
-            writable:false,
-            value:Object.seal(routeConfig)
-        });
+    return function(Target: any, propertyKey: string, descriptor: PropertyDescriptor){
+        //required to access this class
+        // process.nextTick(()=>{
+        //     //console.log(Reflect.getMetadata(classMountAccessor,Target))
+        // })
     }
 }
 
